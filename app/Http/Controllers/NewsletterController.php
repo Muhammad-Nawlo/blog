@@ -3,23 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Services\Newsletter;
-use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Validation\ValidationException;
 
 class NewsletterController extends Controller
 {
     public function __invoke(Newsletter $newsletter)
     {
+        request()->validate(['email' => 'required|email']);
+
         try {
-            request()->validate([
-                'email' => 'required',
-            ]);
             $newsletter->subscribe(request('email'));
-        } catch (\Throwable $e) {
+        } catch (Exception $e) {
             throw ValidationException::withMessages([
-                'email' => 'This email could not be added to out newsletter list.'
+                'email' => 'This email could not be added to our newsletter list.'
             ]);
         }
-        return redirect('/')->with('success', 'You are now signed up for out newsletter!');
+
+        return redirect('/')
+            ->with('success', 'You are now signed up for our newsletter!');
     }
 }

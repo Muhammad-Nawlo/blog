@@ -3,9 +3,6 @@
         Latest <span class="text-blue-500">Laravel From Scratch</span> News
     </h1>
 
-    <h2 class="inline-flex mt-2">By Lary Laracore <img src="/images/lary-head.svg"
-                                                       alt="Head of Lary the mascot"></h2>
-
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
         <div class="relative lg:inline-flex bg-gray-100 rounded-xl">
             <x-category-dropdown />

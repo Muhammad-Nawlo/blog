@@ -43,7 +43,6 @@ class AuthController extends Controller
             return redirect('/')->with('success', 'You are logged in');
         }
         return back()->withInput(['email'])->withErrors(['email' => 'Your credentials are not valid']);
-
     }
 
     public function logout()
